@@ -237,9 +237,9 @@ show_menu() {
 ————————————————
   ${green}1.${plain} 初始化安装Docker
   ${green}2.${plain} Docker安装并运行FPR服务端
-  ${green}2.${plain} Docker安装并运行FPR客户端
-  ${green}2.${plain} Docker安装并运行FPR服务端及客户端
-  ${green}3.${plain} 删除所有Docker【慎用！！！】
+  ${green}3.${plain} Docker安装并运行FPR客户端
+  ${green}4.${plain} Docker安装并运行FPR服务端及客户端
+  ${green}5.${plain} 删除所有Docker【慎用！！！】
 ————————————————
   ${green}4.${plain} 添加节点并启动
   ${green}5.${plain} 防火墙检测
@@ -253,9 +253,13 @@ show_menu() {
         ;;
         1) init_install
         ;;
-        2) start_all_docker
+        2) init_frps
         ;;
-        3) stop_docker && rm_docker
+        3) init_frpc
+        ;;
+        4) init_frp
+        ;;
+        5) stop_docker && rm_docker
         ;;
         4) show_input  && start_docker
         ;;
