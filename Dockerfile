@@ -18,6 +18,11 @@ RUN set -x && \
 	mkdir /frp && \
 	mv frps frps.ini /frp && \
 	mv frpc frpc.ini /frp && \
+	echo "authentication_method = token">>/frp/frps.ini && \
+	echo "token = nat.vps.la">>/frp/frps.ini && \
+	echo "server_addr = nat.vps.la">>/frp/frpc.ini && \
+	echo "server_port = 7000">>/frp/frpc.ini && \
+	echo "token = nat.vps.la">>/frp/frpc.ini && \
 	cd .. && \
 	rm -rf *.tar.gz frp_${FRP_VERSION}_linux_${PLATFORM}
 
