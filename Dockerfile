@@ -17,6 +17,7 @@ RUN set -x && \
 	cd frp_${FRP_VERSION}_linux_${PLATFORM} && \
 	mkdir /frp && \
 	mv frps frps.ini /frp && \
+	mv frpc frpc.ini /frp && \
 	cd .. && \
 	rm -rf *.tar.gz frp_${FRP_VERSION}_linux_${PLATFORM}
 

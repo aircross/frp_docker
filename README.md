@@ -30,8 +30,8 @@
 - 群晖 NAS 一键脚本安装 **[不支持 docker 的群晖机型]** [点击查看教程](https://www.ioiox.com/archives/6.html)
 - Linux 服务器 一键脚本安装 **[内网 Linux 服务器或虚拟机]**
   - 执行命令拉取并运行容器：
-    - docker run -it -d --name frp --net=host --restart=always --privileged aircross/frp_docker init
-  - 执行命令进入修改配置：docker exec -it frp bash
+    - docker run -d --name frp -v /opt/frpc/frpc.ini:/frp/frpc.ini --restart=always aircross/frp_docker
+  - 执行命令进入修改配置：docker exec -it frp sh
   - 根据实际情况修改配置文件：vi /frp/frps.ini
   - FPRS服务端：server_addr = frp.freefrp.net
   - FRPS服务端对接Token：token = freefrp.net
@@ -74,7 +74,7 @@ vi /root/frpc/frpc.ini
 
 执行以下命令启动服务
 ```shell
-docker run -d --name=frpc --restart=always -v /root/frpc/frpc.ini:/frp/frpc.ini stilleshan/frpc
+docker run -d --name=frpc --restart=always -v /root/frpc/frpc.ini:/frp/frpc.ini aircross/frp_docker
 ```
 > 以上命令 -v 挂载的目录是以 git clone 本仓库为例,也可以在任意位置手动创建 frpc.ini 文件,并修改命令中的挂载路径.
 
